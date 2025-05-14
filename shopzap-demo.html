@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Store - ShopZap.io</title>
+    <link rel="stylesheet" href="shopzap-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="store-header">
+        <div class="container">
+            <div class="store-info">
+                <div class="store-logo">
+                    <img src="images/demo-logo.svg" alt="Store Logo" id="storeLogo">
+                </div>
+                <div class="store-details">
+                    <h1 id="storeName">Demo Fashion Store</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product-details">
+                <div class="modal-product-image">
+                    <img src="" alt="Product" id="modalProductImage">
+                </div>
+                <div class="modal-product-info">
+                    <h2 id="modalProductName"></h2>
+                    <p class="modal-product-price" id="modalProductPrice"></p>
+                    <p class="modal-product-description" id="modalProductDescription"></p>
+                    <button class="whatsapp-order-btn" id="checkoutBtn">
+                        <i class="fas fa-shopping-cart"></i> Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkoutContainer" style="display: none;">
+        <div class="container">
+            <div class="checkout-form">
+                <h2>Complete Your Order</h2>
+                <div class="checkout-product" id="checkoutProductDetails">
+                    <!-- Product details will be loaded here -->
+                </div>
+                
+                <form id="orderForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerName">Full Name</label>
+                            <input type="text" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">+91</span>
+                                <input type="tel" id="customerPhone" name="customerPhone" pattern="[0-9]{10}" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email Address</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Delivery Address</label>
+                        <input type="text" id="customerAddress" name="customerAddress" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" id="upi" name="paymentMethod" value="UPI" checked>
+                                <label for="upi">UPI / Google Pay / PhonePe</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="cod" name="paymentMethod" value="Cash on Delivery">
+                                <label for="cod">Cash on Delivery</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="bankTransfer" name="paymentMethod" value="Bank Transfer">
+                                <label for="bankTransfer">Bank Transfer</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-check"></i> Place Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="store-footer">
+        <div class="container">
+            <p>Powered by <a href="shopzap.html">ShopZap.io</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample store data (in a real app, this would be loaded from a database)
+            const storeData = {
+                name: "Demo Fashion Store",
+                logo: "images/demo-logo.svg",
+                whatsappNumber: "919876543210", // Format: country code + number without +
+                products: [
+                    {
+                        id: 1,
+                        name: "Summer T-Shirt",
+                        price: 599,
+                        description: "Comfortable cotton t-shirt perfect for summer. Available in multiple colors and sizes.",
+                        image: "images/product1.jpg"
+                    },
+                    {
+                        id: 2,
+                        name: "Denim Jeans",
+                        price: 1299,
+                        description: "Classic denim jeans with a modern fit. Durable and stylish for everyday wear.",
+                        image: "images/product2.jpg"
+                    },
+                    {
+                        id: 3,
+                        name: "Casual Sneakers",
+                        price: 899,
+                        description: "Lightweight and comfortable sneakers for daily use. Non-slip sole and breathable material.",
+                        image: "images/product3.jpg"
+                    },
+                    {
+                        id: 4,
+                        name: "Leather Wallet",
+                        price: 499,
+                        description: "Genuine leather wallet with multiple card slots and a coin pocket. Slim design fits perfectly in your pocket.",
+                        image: "images/product4.jpg"
+                    }
+                ]
+            };
+
+            // Initialize the store
+            document.getElementById('storeName').textContent = storeData.name;
+            document.getElementById('storeLogo').src = storeData.logo;
+            document.title = `${storeData.name} - ShopZap.io`;
+            
+            // Load products
+            const productsContainer = document.getElementById('productsContainer');
+            
+            storeData.products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-product-id', product.id);
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-price">₹${product.price}</p>
+                        <p class="product-description">${product.description}</p>
+                        <a href="#" class="whatsapp-btn" data-product-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Buy Now
+                        </a>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+                
+                // Add click event to the product card
+                productCard.addEventListener('click', function(e) {
+                    // Don't open modal if Buy Now button was clicked
+                    if (e.target.closest('.whatsapp-btn')) {
+                        e.preventDefault();
+                        const productId = parseInt(this.getAttribute('data-product-id'));
+                        openProductModal(productId);
+                        return;
+                    }
+                    
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    openProductModal(productId);
+                });
+            });
+            
+            // Set up modal functionality
+            const modal = document.getElementById('productModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            // Close modal when clicking the X
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the content
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Checkout button in modal
+            checkoutBtn.addEventListener('click', function() {
+                const productId = parseInt(this.getAttribute('data-product-id'));
+                showCheckoutForm(productId);
+                modal.style.display = 'none';
+            });
+            
+            // Handle order form submission
+            const orderForm = document.getElementById('orderForm');
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const customerName = document.getElementById('customerName').value;
+                const customerPhone = document.getElementById('customerPhone').value;
+                const customerEmail = document.getElementById('customerEmail').value;
+                const customerAddress = document.getElementById('customerAddress').value;
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+                const productId = parseInt(document.getElementById('checkoutProductDetails').getAttribute('data-product-id'));
+                
+                // Create order object
+                const order = {
+                    orderId: 'ORD' + Math.floor(Math.random() * 1000000),
+                    product: storeData.products.find(p => p.id === productId),
+                    customerName: customerName,
+                    customerPhone: customerPhone,
+                    customerEmail: customerEmail,
+                    customerAddress: customerAddress,
+                    paymentMethod: paymentMethod,
+                    orderDate: new Date().toISOString(),
+                    storeWhatsappNumber: storeData.whatsappNumber
+                };
+                
+                // Save order to localStorage (for demo purposes)
+                localStorage.setItem('shopzapOrderData', JSON.stringify(order));
+                
+                // Redirect to thank you page
+                window.location.href = 'shopzap-thankyou.html';
+            });
+            
+            // Function to open product modal
+            function openProductModal(productId) {
+                const product = storeData.products.find(p => p.id === productId);
+                if (!product) return;
+                
+                // Set modal content
+                document.getElementById('modalProductImage').src = product.image;
+                document.getElementById('modalProductName').textContent = product.name;
+                document.getElementById('modalProductPrice').textContent = `₹${product.price}`;
+                document.getElementById('modalProductDescription').textContent = product.description;
+                document.getElementById('checkoutBtn').setAttribute('data-product-id', productId);
+                
+                // Show modal
+                modal.style.display = 'block';
+            }
+            
+            // Function to show checkout form
+            function showCheckoutForm(productId) {
+                const product = storeData.products.find(p => p.id === productId);
+                if (!product) return;
+                
+                // Set checkout product details
+                const checkoutProductDetails = document.getElementById('checkoutProductDetails');
+                checkoutProductDetails.innerHTML = `
+                    <div class="checkout-product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="checkout-product-details">
+                        <h3>${product.name}</h3>
+                        <p class="checkout-product-price">₹${product.price}</p>
+                    </div>
+                `;
+                checkoutProductDetails.setAttribute('data-product-id', productId);
+                
+                // Show checkout container
+                document.getElementById('checkoutContainer').style.display = 'block';
+                
+                // Scroll to checkout form
+                document.getElementById('checkoutContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopzap.io Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="logo">
+                <h1>WhatsApp<span>Store</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-welcome">
+                <h2>Welcome to Your Dashboard</h2>
+                <p>Manage your store, track orders, and grow your business</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>4</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>₹8,547</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>45</h3>
+                        <p>Store Visitors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-sections">
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3>Recent Orders</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="orders-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Product</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD001</td>
+                                    <td>Summer T-Shirt</td>
+                                    <td>John Doe</td>
+                                    <td>Today, 10:30 AM</td>
+                                    <td>₹599</td>
+                                    <td><span class="status-pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD002</td>
+                                    <td>Denim Jeans</td>
+                                    <td>Jane Smith</td>
+                                    <td>Yesterday, 3:45 PM</td>
+                                    <td>₹1,299</td>
+                                    <td><span class="status-completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD003</td>
+                                    <td>Casual Sneakers</td>
+                                    <td>Mike Johnson</td>
+                                    <td>Yesterday, 1:20 PM</td>
+                                    <td>₹899</td>
+                                    <td><span class="status-completed">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3>Your Products</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="products-grid dashboard-products">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/product1.jpg" alt="Summer T-Shirt">
+                            </div>
+                            <div class="product-info">
+                                <h3>Summer T-Shirt</h3>
+                                <p class="product-price">₹599</p>
+                                <div class="product-actions">
+                                    <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/product2.jpg" alt="Denim Jeans">
+                            </div>
+                            <div class="product-info">
+                                <h3>Denim Jeans</h3>
+                                <p class="product-price">₹1,299</p>
+                                <div class="product-actions">
+                                    <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card add-product-card">
+                            <div class="add-product-content">
+                                <i class="fas fa-plus"></i>
+                                <p>Add New Product</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-sections">
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3>Store Analytics</h3>
+                    </div>
+                    <div class="analytics-cards">
+                        <div class="analytics-card">
+                            <h4>Most Viewed Products</h4>
+                            <ul class="analytics-list">
+                                <li>
+                                    <span class="product-name">Summer T-Shirt</span>
+                                    <span class="product-views">124 views</span>
+                                </li>
+                                <li>
+                                    <span class="product-name">Denim Jeans</span>
+                                    <span class="product-views">98 views</span>
+                                </li>
+                                <li>
+                                    <span class="product-name">Casual Sneakers</span>
+                                    <span class="product-views">76 views</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Conversion Rate</h4>
+                            <div class="conversion-chart">
+                                <div class="chart-placeholder">
+                                    <div class="chart-circle">
+                                        <span class="chart-percentage">8.5%</span>
+                                    </div>
+                                </div>
+                                <p>Store conversion rate this week</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="#" class="quick-action-card">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share Your Store</span>
+                        </a>
+                        <a href="#" class="quick-action-card">
+                            <i class="fas fa-cog"></i>
+                            <span>Store Settings</span>
+                        </a>
+                        <a href="#" class="quick-action-card">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade Plan</span>
+                        </a>
+                        <a href="#" class="quick-action-card">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Get Help</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>WhatsApp<span>Store</span></h2>
+                    <p>The easiest way to sell on WhatsApp</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#pricing">Pricing</a></li>
+                            <li><a href="index.html#demo">Demo</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 WhatsAppStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+<div class="grid grid-cols-4 gap-4 p-6">
+<div class="bg-white shadow rounded-lg p-4">
+<div class="flex items-center">
+<i class="fas fa-box text-blue-600 text-2xl mr-4"></i>
+<div>
+<p class="text-sm font-medium text-gray-600">Products</p>
+<p class="text-lg font-semibold">0</p>
+</div>
+</div>
+</div>
+<div class="bg-white shadow rounded-lg p-4">
+<div class="flex items-center">
+<i class="fas fa-shopping-cart text-blue-600 text-2xl mr-4"></i>
+<div>
+<p class="text-sm font-medium text-gray-600">Orders</p>
+<p class="text-lg font-semibold">0</p>
+</div>
+</div>
+</div>
+<div class="bg-white shadow rounded-lg p-4">
+<div class="flex items-center">
+<i class="fas fa-eye text-blue-600 text-2xl mr-4"></i>
+<div>
+<p class="text-sm font-medium text-gray-600">Views</p>
+<p class="text-lg font-semibold">0</p>
+</div>
+</div>
+</div>
+<div class="bg-white shadow rounded-lg p-4">
+<div class="flex items-center">
+<i class="fas fa-rocket text-blue-600 text-2xl mr-4"></i>
+<div>
+<p class="text-sm font-medium text-gray-600">Plan Status</p>
+<p class="text-lg font-semibold">Free</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 p-6">
+<div class="bg-white shadow rounded-lg p-6 text-center">
+<p class="text-lg font-semibold">You haven’t added any products yet.</p>
+<button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md">+ Create Your First Product</button>
+</div>
+</div>

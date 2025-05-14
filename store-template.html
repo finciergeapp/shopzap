@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Name - WhatsApp Store</title>
+    <link rel="stylesheet" href="store-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="store-header">
+        <div class="container">
+            <div class="store-info">
+                <div class="store-logo">
+                    <img src="images/demo-logo.svg" alt="Store Logo" id="storeLogo">
+                </div>
+                <div class="store-details">
+                    <h1 id="storeName">Store Name</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product-details">
+                <div class="modal-product-image">
+                    <img src="" alt="Product" id="modalProductImage">
+                </div>
+                <div class="modal-product-info">
+                    <h2 id="modalProductName"></h2>
+                    <p class="modal-product-price" id="modalProductPrice"></p>
+                    <p class="modal-product-description" id="modalProductDescription"></p>
+                    <button class="whatsapp-order-btn" id="whatsappOrderBtn">
+                        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="store-footer">
+        <div class="container">
+            <p>Powered by <a href="index.html">WhatsAppStore</a></p>
+        </div>
+    </footer>
+
+    <script src="store-script.js"></script>
+</body>
+</html>

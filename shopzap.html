@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZap.io - Create Your WhatsApp Store in Minutes</title>
+    <link rel="stylesheet" href="shopzap-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Shop<span>Zap</span>.io</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#" onclick="checkAuthAndRedirect(event, '#create-store')" class="btn-primary">Create Store</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Create Your WhatsApp Store in Minutes</h1>
+                <p>The easiest way for small businesses in India to sell products directly through WhatsApp. No coding required!</p>
+                <div class="cta-buttons">
+                    <a href="#" onclick="checkAuthAndRedirect(event, '#create-store')" class="btn-primary">Create Your Store</a>
+                    <a href="#demo" class="btn-secondary">See Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-image.svg" alt="ShopZap.io Demo">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Easy Store Creation</h3>
+                    <p>Create your store in minutes. Add your store name, logo, and customize your theme.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Integration</h3>
+                    <p>Receive order details directly on WhatsApp with customer information and product details.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Notifications</h3>
+                    <p>Get order details via email and allow customers to make corrections within 24 hours.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Custom Themes</h3>
+                    <p>Choose from multiple themes and customize colors, fonts, and layout to match your brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <p class="price">₹0<span>/month</span></p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Up to 5 products</li>
+                            <li><i class="fas fa-check"></i> Basic store link</li>
+                            <li><i class="fas fa-check"></i> WhatsApp notifications</li>
+                            <li><i class="fas fa-times"></i> Email notifications</li>
+                            <li><i class="fas fa-times"></i> Theme customization</li>
+                            <li><i class="fas fa-times"></i> CSV/Google Sheet upload</li>
+                        </ul>
+                    </div>
+                    <a href="#" onclick="checkAuthAndRedirect(event, '#create-store')" class="btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <p class="price">₹499<span>/month</span></p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited products</li>
+                            <li><i class="fas fa-check"></i> Custom store link</li>
+                            <li><i class="fas fa-check"></i> WhatsApp notifications</li>
+                            <li><i class="fas fa-check"></i> Email notifications</li>
+                            <li><i class="fas fa-check"></i> Theme customization</li>
+                            <li><i class="fas fa-check"></i> CSV/Google Sheet upload</li>
+                        </ul>
+                    </div>
+                    <a href="#" onclick="checkAuthAndRedirect(event, '#create-store')" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">See ShopZap.io in Action</h2>
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h3>Try Our Demo Store</h3>
+                    <p>Experience how your customers will interact with your ShopZap.io store. Browse products, place orders, and see the WhatsApp integration in action.</p>
+                    <a href="shopzap-demo.html" class="btn-primary">View Demo Store</a>
+                </div>
+                <div class="demo-image">
+                    <img src="images/demo-logo.svg" alt="Demo Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="create-store" class="create-store">
+        <div class="container">
+            <h2 class="section-title">Create Your Store</h2>
+            <div class="form-container">
+                <form id="storeCreationForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="storeName">Store Name</label>
+                        <input type="text" id="storeName" name="storeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsappNumber">WhatsApp Number</label>
+                        <div class="input-with-prefix">
+                            <span class="prefix">+91</span>
+                            <input type="tel" id="whatsappNumber" name="whatsappNumber" pattern="[0-9]{10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="storeLogo">Store Logo</label>
+                        <input type="file" id="storeLogo" name="storeLogo" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label>Choose a Theme</label>
+                        <div class="theme-selector">
+                            <div class="theme-option">
+                                <input type="radio" id="theme1" name="theme" value="theme1" checked>
+                                <label for="theme1">
+                                    <div class="theme-preview theme1-preview"></div>
+                                    <span>Classic</span>
+                                </label>
+                            </div>
+                            <div class="theme-option">
+                                <input type="radio" id="theme2" name="theme" value="theme2">
+                                <label for="theme2">
+                                    <div class="theme-preview theme2-preview"></div>
+                                    <span>Modern</span>
+                                </label>
+                            </div>
+                            <div class="theme-option">
+                                <input type="radio" id="theme3" name="theme" value="theme3">
+                                <label for="theme3">
+                                    <div class="theme-preview theme3-preview"></div>
+                                    <span>Minimal</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Create My Store</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Shop<span>Zap</span>.io</h2>
+                    <p>The easiest way to sell on WhatsApp</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#demo">Demo</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShopZap.io. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="shopzap-script.js"></script>
+</body>
+</html>
