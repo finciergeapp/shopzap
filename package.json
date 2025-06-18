@@ -1,0 +1,22 @@
+{
+  "name": "whatsapp-store",
+  "version": "1.0.0",
+  "description": "Create your WhatsApp store in minutes",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build completed - static files ready'",
+    "start": "echo 'Starting static server' && npx http-server . -p 3000",
+    "dev": "npx http-server . -p 3000 -o"
+  },
+  "keywords": [
+    "whatsapp",
+    "store",
+    "ecommerce",
+    "static"
+  ],
+  "author": "WhatsApp Store",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
